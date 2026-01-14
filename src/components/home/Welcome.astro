@@ -1,0 +1,59 @@
+---
+interface Props {
+  tagline?: string;
+  title?: string;
+  paragraph1?: string;
+  paragraph2?: string;
+  paragraph3?: string;
+  signature?: string;
+}
+
+const {
+  tagline = "Welkom bij De Kooi",
+  title = "\"Thuis komen in de polder, even weg van alles.\"",
+  paragraph1 = "In het mooie dorp Westbroek runnen wij, <strong class=\"text-polder-green\">Wim en Wilma van Barneveld</strong>, onze kleinschalige poldercamping. Sinds de zomer van 2022 heten wij u van harte welkom op ons erf.",
+  paragraph2 = "Op onze camping vindt u geen wifi, geen kantine en geen animatieteam. Wat vindt u wel? Een ongekende rust, een weids uitzicht en de gezelligheid van het boerenleven.",
+  paragraph3 = "Of u nu komt met de caravan, camper, tent, of kiest voor een van onze pipowagens: u staat altijd front-row met uitzicht op de polder en de molen.",
+  signature = "Wim & Wilma"
+} = Astro.props;
+---
+
+<section class="py-24 bg-white">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+    <!-- Text Content -->
+    <div class="md:w-1/2">
+      <h2 class="text-polder-orange text-lg font-bold uppercase tracking-wider mb-2">{tagline}</h2>
+      <h3 class="text-4xl md:text-5xl font-bold text-polder-green mb-8 leading-tight">
+        {title}
+      </h3>
+      <div class="space-y-6 text-lg text-stone-600">
+        <p set:html={paragraph1} />
+        <p>
+          {paragraph2}
+        </p>
+        <p>
+          {paragraph3}
+        </p>
+      </div>
+      <div class="mt-8">
+        <!-- Signature -->
+        <p class="font-handwriting text-2xl text-polder-orange transform -rotate-2 mt-4">{signature}</p>
+      </div>
+    </div>
+
+    <!-- Image Grid/Composition -->
+    <div class="md:w-1/2 relative">
+      <div class="absolute -top-4 -left-4 w-24 h-24 bg-polder-orange/10 rounded-full z-0"></div>
+      <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-polder-green/10 rounded-full z-0"></div>
+      
+      <!-- Placeholder for "Owners/Farm" image -->
+      <div class="relative z-10 bg-stone-100 rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+        <img 
+          src="https://placehold.co/800x600/2F3E30/FFF?text=Wim+%26+Wilma+in+de+Polder" 
+          alt="Wim en Wilma op de camping" 
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>

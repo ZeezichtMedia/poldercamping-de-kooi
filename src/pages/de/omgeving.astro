@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<Layout title="Omgeving">
+  <link slot="head" rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script slot="head" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <PageHeader 
+    title="Entdecken Sie die Vecht-Region" 
+    subtitle="Von grünen Poldern bis zur Innenstadt von Utrecht"
+  />
+
+  <main class="container mx-auto px-4 py-16">
+    
+    <!-- Introduction -->
+    <div class="max-w-4xl mx-auto mb-16">
+      <p class="text-lg text-stone-600 leading-relaxed drop-cap">
+        Westbroek ist ein Straßendorf inmitten des Grünen Herzens der Provinz Utrecht. Die Umgebung ist geprägt von ausgedehnten Wiesen, historischen Festungen der Neuen Holländischen Wasserlinie und wunderschönen Seenlandschaften. Es ist ein wahres Paradies für Radfahrer und Wanderer.
+      </p>
+    </div>
+
+    <!-- Highlights Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="bg-white rounded-xl shadow-sm border border-stone-100 overflow-hidden hover:shadow-md transition-shadow">
+        <div class="h-48 bg-stone-200">
+          <img src="/images/omgeving-utrecht.png" alt="Utrecht" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-polder-green mb-2">Stadt Utrecht</h3>
+          <p class="text-sm text-stone-500 mb-4 font-medium uppercase tracking-wide">20 Minuten mit dem Fahrrad</p>
+          <p class="text-stone-600">
+            Besuchen Sie die lebendige Innenstadt von Utrecht. Besteigen Sie den Domturm, fahren Sie durch die Grachten oder shoppen Sie in den stimmungsvollen Straßen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-xl shadow-sm border border-stone-100 overflow-hidden hover:shadow-md transition-shadow">
+        <div class="h-48 bg-stone-200">
+           <img src="/images/omgeving-loosdrecht.png" alt="Loosdrechtse Plassen" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-polder-green mb-2">Loosdrechter Seen</h3>
+          <p class="text-sm text-stone-500 mb-4 font-medium uppercase tracking-wide">15 Minuten mit dem Fahrrad</p>
+          <p class="text-stone-600">
+            Mieten Sie ein Boot, gehen Sie schwimmen oder genießen Sie eine Terrasse am Wasser. Die Seen sind ein wunderbarer Ort für einen Tagesausflug.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-xl shadow-sm border border-stone-100 overflow-hidden hover:shadow-md transition-shadow">
+        <div class="h-48 bg-stone-200">
+           <img src="/images/omgeving-natuur.png" alt="Fietsen" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-polder-green mb-2">Rad- & Wanderrouten</h3>
+          <p class="text-sm text-stone-500 mb-4 font-medium uppercase tracking-wide">Direkt ab dem Campingplatz</p>
+          <p class="text-stone-600">
+            Zahlreiche Routen wie "Klompenpaden" und Knotenpunktrouten führen Sie an Festungen, Mühlen und durch die Natur.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Map Placeholder (Optional) -->
+    <!-- Map Section -->
+    <div class="mt-20">
+      <h3 class="text-2xl font-bold text-polder-green mb-6 text-center">Entdecken Sie die Umgebung</h3>
+      <div id="map" class="w-full h-96 rounded-2xl shadow-lg border border-stone-200 z-10"></div>
+    </div>
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Map
+        const map = L.map('map').setView([52.146, 5.120], 11); // Center roughly between points
+
+        // Add Tile Layer (CartoDB Voyager for a clean, light look)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+          subdomains: 'abcd',
+          maxZoom: 19
+        }).addTo(map);
+
+        // Custom Icon for Camping
+        const campingIcon = L.divIcon({
+          className: 'custom-div-icon',
+          html: "<div style='background-color: #D97706; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);'></div>",
+          iconSize: [24, 24],
+          iconAnchor: [12, 12]
+        });
+
+        // Standard Icon for POIs
+        const poiIcon = L.divIcon({
+          className: 'custom-div-icon',
+          html: "<div style='background-color: #2F3E30; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px -1px rgba(0,0,0,0.1);'></div>",
+          iconSize: [16, 16],
+          iconAnchor: [8, 8]
+        });
+
+        // Add Markers
+        L.marker([52.160, 5.120], { icon: campingIcon }).addTo(map)
+          .bindPopup('<strong>Poldercamping de Kooi</strong><br>Dokter Welfferweg 110, Westbroek')
+          .openPopup();
+
+        L.marker([52.1234, 5.1111], { icon: poiIcon }).addTo(map)
+          .bindPopup('<strong>Utrecht</strong><br>Domturm & Grachten');
+
+        L.marker([52.1793, 5.0800], { icon: poiIcon }).addTo(map)
+          .bindPopup('<strong>Loosdrechter Seen</strong><br>Bootfahren & Erholung');
+      });
+    </script>
+
+  </main>
+</Layout>

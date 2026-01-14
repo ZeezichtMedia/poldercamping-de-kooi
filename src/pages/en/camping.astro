@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<Layout title="De Camping">
+  <PageHeader 
+    title="Camping at the Farm" 
+    subtitle="Spacious spots with private sanitary facilities"
+  />
+
+  <main class="container mx-auto px-4 py-16">
+    <!-- Intro -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl font-bold text-polder-green mb-6">Comfort and Peace</h2>
+      <p class="text-lg text-stone-600 leading-relaxed">
+        Our campsite has 7 spacious comfort spots. Each spot is equipped with electricity (10 amps) and its own water tap. But the real highlight is your own private sanitary unit directly at your spot.
+      </p>
+    </div>
+
+    <!-- Features Grid (Specific to Camping) -->
+    <div class="grid md:grid-cols-2 gap-12 mb-20">
+      <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+         <div class="h-64 bg-stone-200 relative group">
+           <img src="/images/prive-sanitair-custom.jpg" alt="Privé Sanitair Unit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-polder-green mb-4">Private Sanitary</h3>
+          <p class="text-stone-600 mb-4">
+            No more walking across the campsite with your toilet roll. Your own unit features:
+          </p>
+          <ul class="space-y-2 text-stone-600">
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-polder-orange"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              Toilet
+            </li>
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-polder-orange"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              Hot shower
+            </li>
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-polder-orange"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              Sink & mirror
+            </li>
+             <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-polder-orange"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              Heating
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
+        <div class="h-64 bg-stone-200 relative group">
+           <img src="/images/de-plekken-nieuw.png" alt="Kampeerplek" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold text-polder-green mb-4">The Spots</h3>
+          <p class="text-stone-600 mb-4">
+            Our 7 spots are paved and surrounded by grass. You have a wide view over the meadows.
+          </p>
+          <ul class="space-y-2 text-stone-600">
+             <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-polder-orange"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              Suitable for caravan, camper and tent
+            </li>
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-polder-orange"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              10 amp electricity (included)
+            </li>
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-polder-orange"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              Free wifi-free zone (real peace!)
+            </li>
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-polder-orange"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              No dogs allowed
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Facilities List / Other Info -->
+    <div class="bg-stone-50 rounded-2xl p-8 md:p-12">
+      <h3 class="text-2xl font-bold text-polder-green mb-6">Other Facilities</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="flex items-start gap-4">
+          <div class="bg-white p-3 rounded-full shadow-sm">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-polder-green">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-stone-800">Electricity Included</h4>
+            <p class="text-sm text-stone-600">No hassle with coins or meters.</p>
+          </div>
+        </div>
+         <div class="flex items-start gap-4">
+          <div class="bg-white p-3 rounded-full shadow-sm">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-polder-green">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-stone-800">Wide View</h4>
+            <p class="text-sm text-stone-600">View of the windmill and Dom Tower.</p>
+          </div>
+        </div>
+         <div class="flex items-start gap-4">
+          <div class="bg-white p-3 rounded-full shadow-sm">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-polder-green">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-stone-800">Chemical Toilet</h4>
+            <p class="text-sm text-stone-600">Special disposal point available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

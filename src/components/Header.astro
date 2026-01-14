@@ -1,0 +1,160 @@
+---
+const currentLocale = Astro.currentLocale || 'nl';
+
+const navTranslations = {
+  nl: {
+    home: 'Home',
+    camping: 'De Camping',
+    pipowagens: 'Pipowagens',
+    omgeving: 'Omgeving',
+    tarieven: 'Tarieven',
+    contact: 'Contact',
+    book: 'Boek Nu'
+  },
+  en: {
+    home: 'Home',
+    camping: 'The Camping',
+    pipowagens: 'Gypsy Wagons',
+    omgeving: 'Surroundings',
+    tarieven: 'Rates',
+    contact: 'Contact',
+    book: 'Book Now'
+  },
+  de: {
+    home: 'Home',
+    camping: 'Der Camping',
+    pipowagens: 'Zirkuswagen',
+    omgeving: 'Umgebung',
+    tarieven: 'Preise',
+    contact: 'Kontakt',
+    book: 'Jetzt buchen'
+  }
+};
+
+const t = navTranslations[currentLocale];
+
+function getLocaleUrl(locale, path) {
+   if (locale === 'nl' && path === '/') return '/nl';
+   return `/${locale}${path}`;
+}
+
+const links = [
+  { href: getLocaleUrl(currentLocale, '/'), label: t.home },
+  { href: getLocaleUrl(currentLocale, '/camping'), label: t.camping },
+  { href: getLocaleUrl(currentLocale, '/pipowagens'), label: t.pipowagens },
+  { href: getLocaleUrl(currentLocale, '/omgeving'), label: t.omgeving },
+  { href: getLocaleUrl(currentLocale, '/tarieven'), label: t.tarieven },
+  { href: getLocaleUrl(currentLocale, '/contact'), label: t.contact },
+];
+
+const { pathname } = Astro.url;
+
+function getLangUrl(targetLocale) {
+  const parts = pathname.split('/').filter(Boolean);
+  if (['en', 'de', 'nl'].includes(parts[0])) {
+    parts.shift();
+  }
+  const cleanPath = parts.join('/');
+  return `/${targetLocale}/${cleanPath}`;
+}
+---
+
+<header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-stone-100 shadow-sm">
+  <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+    <a href={getLocaleUrl(currentLocale, '/')} class="flex items-center gap-3 group">
+      <img src="/images/logo.png" alt="Poldercamping de Kooi Logo" class="w-16 h-16 object-contain" />
+      <div class="flex flex-col">
+        <span class="block text-polder-green font-bold text-lg leading-none group-hover:text-polder-orange transition-colors">Poldercamping</span>
+        <span class="block text-polder-orange font-handwriting text-3xl leading-none transform -rotate-2 origin-left mt-1">De Kooi</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-8">
+      {links.map(link => (
+        <a 
+          href={link.href} 
+          class="text-polder-green text-lg font-bold hover:text-polder-orange transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      
+      <!-- Language Switcher -->
+      <div class="flex items-center gap-3 ml-4 border-l-2 border-stone-200 pl-6">
+        <a 
+          href={getLangUrl('nl')} 
+          class={`text-base font-bold transition-colors ${currentLocale === 'nl' ? 'text-polder-orange' : 'text-stone-400 hover:text-polder-green'}`}
+        >
+          NL
+        </a>
+        <a 
+          href={getLangUrl('en')} 
+          class={`text-base font-bold transition-colors ${currentLocale === 'en' ? 'text-polder-orange' : 'text-stone-400 hover:text-polder-green'}`}
+        >
+          EN
+        </a>
+        <a 
+          href={getLangUrl('de')} 
+          class={`text-base font-bold transition-colors ${currentLocale === 'de' ? 'text-polder-orange' : 'text-stone-400 hover:text-polder-green'}`}
+        >
+          DE
+        </a>
+      </div>
+
+      <a href={getLocaleUrl(currentLocale, '/contact')} class="bg-polder-orange hover:bg-polder-orange-dark text-white text-lg font-bold px-7 py-3 rounded-full transition-all hover:scale-105 shadow-md ml-4">
+        {t.book}
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="lg:hidden text-polder-green p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-24 px-4">
+    <button id="close-menu-btn" class="absolute top-6 right-4 text-stone-500 p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <nav class="flex flex-col gap-6 items-center">
+      {links.map(link => (
+        <a 
+          href={link.href} 
+          class="text-2xl font-medium text-stone-800 hover:text-polder-orange"
+        >
+          {link.label}
+        </a>
+      ))}
+      
+       <div class="flex items-center gap-6 mt-4">
+        <a href={getLangUrl('nl')} class={`text-lg font-bold ${currentLocale === 'nl' ? 'text-polder-orange' : 'text-stone-400'}`}>NL</a>
+        <a href={getLangUrl('en')} class={`text-lg font-bold ${currentLocale === 'en' ? 'text-polder-orange' : 'text-stone-400'}`}>EN</a>
+        <a href={getLangUrl('de')} class={`text-lg font-bold ${currentLocale === 'de' ? 'text-polder-orange' : 'text-stone-400'}`}>DE</a>
+      </div>
+
+       <a href={getLocaleUrl(currentLocale, '/contact')} class="mt-4 bg-polder-orange text-white px-8 py-3 rounded-full text-lg font-medium">
+        {t.book}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const closeBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function toggleMenu() {
+    mobileMenu?.classList.toggle('translate-x-full');
+    document.body.classList.toggle('overflow-hidden');
+  }
+
+  menuBtn?.addEventListener('click', toggleMenu);
+  closeBtn?.addEventListener('click', toggleMenu);
+</script>

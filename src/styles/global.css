@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+    --color-polder-green: #2F3E30;
+    --color-polder-green-dark: #1F2920;
+    --color-polder-orange: #D97706;
+    --color-polder-orange-dark: #B45309;
+    --color-polder-cream: #F5F5F4;
+    --color-polder-blue: #334155;
+    --color-polder-bg: #FAFAF9;
+
+    --font-sans: 'Source Sans Pro', sans-serif;
+    --font-handwriting: 'Caveat', cursive;
+}
