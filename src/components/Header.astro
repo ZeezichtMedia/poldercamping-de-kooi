@@ -34,7 +34,7 @@ const navTranslations = {
 const t = navTranslations[currentLocale];
 
 function getLocaleUrl(locale, path) {
-   if (locale === 'nl' && path === '/') return '/nl';
+   if (locale === 'nl') return path;
    return `/${locale}${path}`;
 }
 
@@ -51,10 +51,17 @@ const { pathname } = Astro.url;
 
 function getLangUrl(targetLocale) {
   const parts = pathname.split('/').filter(Boolean);
-  if (['en', 'de', 'nl'].includes(parts[0])) {
+  // If the first part is a known locale (en or de), remove it. 
+  // Dutch pages at root don't have a prefix.
+  if (['en', 'de'].includes(parts[0])) {
     parts.shift();
   }
   const cleanPath = parts.join('/');
+  
+  if (targetLocale === 'nl') {
+    return cleanPath ? `/${cleanPath}` : '/';
+  }
+  
   return `/${targetLocale}/${cleanPath}`;
 }
 ---
