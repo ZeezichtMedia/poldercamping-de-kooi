@@ -69,38 +69,28 @@ import PageHeader from '../../components/PageHeader.astro';
         </div>
       </div>
 
-      <!-- Reserveren / map -->
-      <div class="bg-stone-50 p-8 rounded-3xl border border-stone-200">
-        <h2 class="text-2xl font-bold text-polder-green mb-4">Reservations</h2>
-        <p class="text-stone-600 mb-6">
-          Would you like to reserve a spot? The easiest way is to call us or send an email. Please mention your desired arrival and departure date and how many people you are coming with.
-        </p>
-        <div class="space-y-4">
-          <a href="mailto:poldercampingdekooi@outlook.com?subject=Reservation%20Inquiry" class="block w-full bg-polder-orange text-white text-center font-bold py-4 rounded-xl hover:bg-polder-orange-dark transition-colors shadow-sm">
-            Send Email
-          </a>
-          <a href="tel:+31623140717" class="block w-full bg-white text-polder-green border-2 border-polder-green text-center font-bold py-4 rounded-xl hover:bg-polder-green hover:text-white transition-colors">
-            Call Directly
-          </a>
-        </div>
-        
-        <div class="mt-8 pt-8 border-t border-stone-200">
-           <h3 class="font-bold text-stone-800 mb-4">Location</h3>
-           <div class="rounded-xl overflow-hidden h-48 bg-stone-200 shadow-inner">
-             <!-- Placeholder for Google Maps Embed -->
-             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2448.971367345678!2d5.1111!3d52.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDA3JzM1LjMiTiA1wrAwNyc0My40IkU!5e0!3m2!1snl!2snl!4v1234567890" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
-                class="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-              ></iframe>
-           </div>
-           <a href="https://goo.gl/maps/placeholder" target="_blank" class="block text-center text-sm text-stone-500 mt-2 hover:text-polder-orange">Open in Google Maps</a>
-        </div>
+      <!-- Location / Map -->
+      <div class="bg-stone-50 p-8 rounded-3xl border border-stone-200 h-fit">
+        <h2 class="text-2xl font-bold text-polder-green mb-6">Location</h2>
+        <div class="rounded-xl overflow-hidden h-64 bg-stone-200 shadow-inner mb-4">
+           <!-- Placeholder for Google Maps Embed -->
+           <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2448.971367345678!2d5.1111!3d52.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDA3JzM1LjMiTiA1wrAwNyc0My40IkU!5e0!3m2!1snl!2snl!4v1234567890" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              class="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+            ></iframe>
+         </div>
+         <a href="https://goo.gl/maps/placeholder" target="_blank" class="block text-center text-sm text-stone-500 hover:text-polder-orange flex items-center justify-center gap-2">
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+           Open in Google Maps
+         </a>
       </div>
     
     </div>

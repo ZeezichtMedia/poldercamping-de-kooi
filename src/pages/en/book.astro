@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<Layout title="Book Now">
+  <PageHeader 
+    title="Make a Reservation" 
+    subtitle="Book your stay in the polder"
+  />
+
+  <main class="container mx-auto px-4 py-16">
+    <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-stone-200">
+      <h2 class="text-3xl font-bold text-polder-green mb-6">Send Request</h2>
+      <p class="text-stone-600 mb-8">
+        Fill out the form below to request a reservation. We will contact you as soon as possible to confirm.
+      </p>
+
+      <form class="space-y-6" id="reservation-form">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-stone-700 font-bold mb-2">Name</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-polder-orange/50 focus:border-polder-orange transition-all" placeholder="Your name">
+          </div>
+          <div>
+            <label for="email" class="block text-stone-700 font-bold mb-2">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-polder-orange/50 focus:border-polder-orange transition-all" placeholder="your@email.com">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="phone" class="block text-stone-700 font-bold mb-2">Phone</label>
+            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-polder-orange/50 focus:border-polder-orange transition-all" placeholder="+31 6 12345678">
+          </div>
+          <div>
+            <label for="persons" class="block text-stone-700 font-bold mb-2">Number of Persons</label>
+            <select id="persons" name="persons" class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-polder-orange/50 focus:border-polder-orange transition-all">
+              <option value="1">1 Person</option>
+              <option value="2" selected>2 Persons</option>
+              <option value="3">3 Persons</option>
+              <option value="4">4 Persons</option>
+              <option value="5+">More than 4</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="arrival" class="block text-stone-700 font-bold mb-2">Arrival Date</label>
+            <input type="date" id="arrival" name="arrival" required class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-polder-orange/50 focus:border-polder-orange transition-all">
+          </div>
+          <div>
+            <label for="departure" class="block text-stone-700 font-bold mb-2">Departure Date</label>
+            <input type="date" id="departure" name="departure" required class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-polder-orange/50 focus:border-polder-orange transition-all">
+          </div>
+        </div>
+
+        <div>
+          <label for="type" class="block text-stone-700 font-bold mb-2">Accommodation Type</label>
+          <select id="type" name="type" class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-polder-orange/50 focus:border-polder-orange transition-all">
+            <option value="kampeerplek">Camping Spot (Caravan/Tent/Camper)</option>
+            <option value="pipowagen">Gypsy Wagon</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block text-stone-700 font-bold mb-2">Comments / Questions</label>
+          <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-polder-orange/50 focus:border-polder-orange transition-all" placeholder="Arrival time, special requests, etc."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-polder-orange text-white font-bold text-lg py-4 rounded-xl hover:bg-polder-orange-dark transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+          Send Request
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('reservation-form');
+    
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(e.target as HTMLFormElement);
+      const data = Object.fromEntries(formData);
+      
+      const subject = `Reservation Request: ${data.name}`;
+      const body = `
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+Persons: ${data.persons}
+Arrival: ${data.arrival}
+Departure: ${data.departure}
+Type: ${data.type}
+
+Message:
+${data.message}
+      `.trim();
+
+      window.location.href = `mailto:poldercampingdekooi@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</Layout>
