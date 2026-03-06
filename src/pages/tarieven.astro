@@ -1,45 +1,54 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
 ---
 
 <Layout title="Tarieven">
-  <PageHeader 
-    title="Tarieven" 
+  <PageHeader
+    title="Tarieven"
     subtitle="Transparante prijzen, geen verrassingen"
   />
 
   <main class="container mx-auto px-4 py-16">
     <div class="max-w-4xl mx-auto">
-      
       <!-- Pricing Card -->
-      <div class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden mb-12">
+      <div
+        class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden mb-12"
+      >
         <div class="bg-polder-green text-white p-6 text-center">
           <h2 class="text-2xl font-bold">Kampeertarieven 2025</h2>
           <p class="opacity-90 mt-2">Per nacht, op basis van 2 personen</p>
         </div>
-        
+
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="bg-stone-50 border-b border-stone-200">
                 <th class="p-6 font-semibold text-stone-700">Seizoen</th>
                 <th class="p-6 font-semibold text-stone-700">Prijs</th>
-                <th class="p-6 font-semibold text-stone-700">Prijs SVR-Leden</th>
+                <th class="p-6 font-semibold text-stone-700">Prijs SVR-Leden</th
+                >
               </tr>
             </thead>
             <tbody class="text-stone-600">
-              <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors">
+              <tr
+                class="border-b border-stone-100 hover:bg-stone-50 transition-colors"
+              >
                 <td class="p-6">
-                  <span class="font-bold block text-stone-800">Voor- en Naseizoen</span>
+                  <span class="font-bold block text-stone-800"
+                    >Voor- en Naseizoen</span
+                  >
                   <span class="text-sm">April, Mei, Juni, September</span>
                 </td>
                 <td class="p-6 font-medium">€ 30,00</td>
                 <td class="p-6 font-medium text-polder-orange">€ 28,00</td>
               </tr>
-              <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors">
+              <tr
+                class="border-b border-stone-100 hover:bg-stone-50 transition-colors"
+              >
                 <td class="p-6">
-                  <span class="font-bold block text-stone-800">Hoogseizoen</span>
+                  <span class="font-bold block text-stone-800">Hoogseizoen</span
+                  >
                   <span class="text-sm">Juli, Augustus</span>
                 </td>
                 <td class="p-6 font-medium">€ 35,00</td>
@@ -48,31 +57,117 @@ import PageHeader from '../components/PageHeader.astro';
             </tbody>
           </table>
         </div>
-        
+
+        <!-- Pipowagen Tarieven Tabel -->
+        <div
+          class="bg-polder-green text-white p-6 text-center border-t border-stone-200"
+        >
+          <h2 class="text-2xl font-bold">Pipowagen Tarieven 2025</h2>
+          <p class="opacity-90 mt-2">
+            Per nacht, inclusief opgemaakt bed en badhanddoeken
+          </p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-stone-50 border-b border-stone-200">
+                <th class="p-6 font-semibold text-stone-700">Type</th>
+                <th class="p-6 font-semibold text-stone-700">Prijs</th>
+                <th class="p-6 font-semibold text-stone-700">Voorwaarden</th>
+              </tr>
+            </thead>
+            <tbody class="text-stone-600">
+              <tr
+                class="border-b border-stone-100 hover:bg-stone-50 transition-colors"
+              >
+                <td class="p-6">
+                  <span class="font-bold block text-stone-800">Pipowagen</span>
+                  <span class="text-sm">Compleet ingericht</span>
+                </td>
+                <td class="p-6 font-medium">€ 75,00</td>
+                <td class="p-6 font-medium text-polder-orange"
+                  >Minimaal 2 nachten</td
+                >
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <!-- Extras -->
         <div class="p-8 bg-stone-50 border-t border-stone-100">
-          <h3 class="text-lg font-bold text-polder-green mb-4">Inbegrepen & Extra's</h3>
+          <h3 class="text-lg font-bold text-polder-green mb-4">
+            Inbegrepen & Extra's
+          </h3>
           <div class="grid md:grid-cols-2 gap-4">
-             <ul class="space-y-2 text-stone-600">
+            <ul class="space-y-2 text-stone-600">
               <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-600"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-green-600"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path></svg
+                >
                 Elektra (10 ampère)
               </li>
               <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-600"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-green-600"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path></svg
+                >
                 Waterverbruik
               </li>
-               <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-600"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <li class="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-green-600"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path></svg
+                >
                 Toeristenbelasting
               </li>
-               <li class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-600"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                 Privé Sanitair unit
+              <li class="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-green-600"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path></svg
+                >
+                Privé Sanitair unit
               </li>
             </ul>
-             <ul class="space-y-2 text-stone-600">
-               <li class="flex items-center gap-2 justify-between">
+            <ul class="space-y-2 text-stone-600">
+              <li class="flex items-center gap-2 justify-between">
                 <span>Extra persoon (vanaf 3 jr)</span>
                 <span class="font-bold">€ 4,00 p.n.</span>
               </li>
@@ -85,15 +180,49 @@ import PageHeader from '../components/PageHeader.astro';
         </div>
       </div>
 
-       <div class="text-center">
-        <p class="text-stone-500 mb-6 italic">
-          * Pipowagen tarieven op aanvraag.
-        </p>
-        <a href="/contact" class="bg-polder-orange hover:bg-polder-orange-dark text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg transition-transform hover:scale-105 inline-block">
+      <!-- Practical Info Card -->
+      <div
+        class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden mb-12 p-8"
+      >
+        <h3 class="text-2xl font-bold text-polder-green mb-6">
+          Praktische Informatie
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6 leading-relaxed">
+          <div>
+            <h4 class="font-bold text-stone-800 mb-2">
+              Openingstijden & Aankomst
+            </h4>
+            <ul class="space-y-2 text-stone-600">
+              <li><strong>Geopend:</strong> 1 april tot 31 oktober</li>
+              <li>
+                <strong>Aankomsttijd:</strong> tussen 13:00 en 15:00 uur.<br
+                /><span class="text-sm text-stone-500"
+                  >Lukt dit niet? Dan graag even mailen of bellen.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-stone-800 mb-2">Betalen</h4>
+            <ul class="space-y-2 text-stone-600">
+              <li>
+                Betalen kan vooraf op rekening (voorkeur), contant of via een
+                QR-code.
+              </li>
+              <li><strong>Let op:</strong> Geen pin aanwezig.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a
+          href="/contact"
+          class="bg-polder-orange hover:bg-polder-orange-dark text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg transition-transform hover:scale-105 inline-block"
+        >
           Reserveer Nu
         </a>
       </div>
-
     </div>
   </main>
 </Layout>
