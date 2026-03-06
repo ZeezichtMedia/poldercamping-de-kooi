@@ -1,31 +1,60 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/home/Hero.astro';
-import Features from '../components/home/Features.astro';
-import Welcome from '../components/home/Welcome.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/home/Hero.astro";
+import Features from "../components/home/Features.astro";
+import Welcome from "../components/home/Welcome.astro";
 ---
 
 <Layout title="Home">
   <main class="min-h-screen">
-    <Hero 
-      ctaPrimaryLink="/reserveren"
-      ctaSecondaryLink="/camping"
-    />
+    <Hero ctaPrimaryLink="/reserveren" ctaSecondaryLink="/camping" />
     <Features />
     <Welcome />
-    
+
     <!-- CTA Section -->
-    <section class="py-20 bg-polder-green text-white text-center">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Klaar voor de polder?</h2>
-        <p class="text-xl text-stone-300 mb-8 max-w-2xl mx-auto">
-          Reserveer nu uw plekje en verzeker uzelf van een ontspannen vakantie met privé sanitair.
+    <section class="py-24 relative overflow-hidden text-white text-center">
+      <!-- Achtergrondafbeelding met overlay -->
+      <div class="absolute inset-0">
+        <img
+          src="/images/new img/drone-foto-camping-weiland.jpeg"
+          alt="Kampeerveld in de polder"
+          class="w-full h-full object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-polder-green-dark/95 via-polder-green/90 to-[#243125]/95"
+        >
+        </div>
+      </div>
+
+      <!-- Decoratief elementje op de achtergrond -->
+      <div
+        class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_0,rgba(255,255,255,0)_100%)] pointer-events-none mix-blend-overlay z-0"
+      >
+      </div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <h2
+          class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight drop-shadow-md"
+        >
+          Klaar voor de polder?
+        </h2>
+        <p
+          class="text-xl text-stone-300 mb-10 max-w-2xl mx-auto leading-relaxed"
+        >
+          Reserveer nu uw plekje en verzeker uzelf van een ontspannen vakantie
+          met privé sanitair.
         </p>
-        <div class="flex justify-center gap-4">
-           <a href="/reserveren" class="bg-polder-orange hover:bg-polder-orange-dark text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg transition-transform hover:scale-105">
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a
+            href="/reserveren"
+            class="bg-gradient-to-r from-polder-orange to-[#e68a19] hover:from-[#e68a19] hover:to-polder-orange text-white text-lg font-bold px-10 py-4 rounded-full shadow-[0_10px_40px_-10px_rgba(217,119,6,0.6)] transition-all duration-300 hover:-translate-y-1 border border-white/10"
+          >
             Reserveer Nu
           </a>
-          <a href="/tarieven" class="bg-transparent border border-white hover:bg-white/10 text-white text-lg font-semibold px-8 py-4 rounded-full transition-colors">
+          <a
+            href="/tarieven"
+            class="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/20 text-white text-lg font-semibold px-10 py-4 rounded-full shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1"
+          >
             Bekijk Tarieven
           </a>
         </div>

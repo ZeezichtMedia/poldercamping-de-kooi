@@ -1,48 +1,56 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
 ---
 
 <Layout title="Pipowagens">
-  <PageHeader 
-    title="Slapen in een Pipowagen" 
+  <PageHeader
+    title="Slapen in een Pipowagen"
     subtitle="Uniek overnachten in de polder"
-    image="/images/pipowagen-hero.png"
+    image="/images/new img/pipowagen-buiten-met-luifel.jpeg"
   />
 
   <main class="container mx-auto px-4 py-16">
     <div class="max-w-4xl mx-auto">
       <div class="prose prose-lg prose-stone mx-auto text-center mb-16">
-        <h2 class="text-3xl font-bold text-polder-green mb-6">Sfeervol & Comfortabel</h2>
+        <h2 class="text-3xl font-bold text-polder-green mb-6">
+          Sfeervol & Comfortabel
+        </h2>
         <p>
-          Wilt u het kampeergevoel ervaren, maar beschikt u niet over een eigen kampeermiddel? Of houdt u gewoon van iets bijzonders? Huur dan een van onze twee sfeervolle <strong>pipowagens</strong>. 
+          Wilt u het kampeergevoel ervaren, maar beschikt u niet over een eigen
+          kampeermiddel? Of houdt u gewoon van iets bijzonders? Huur dan een van
+          onze twee sfeervolle <strong>pipowagens</strong>.
         </p>
         <p>
-          De wagens zijn sfeervol ingericht en staan op een prachtige plek op de camping met vrij uitzicht. Net als bij de kampeerplekken beschikt u ook hier over uw <strong>eigen privé sanitair</strong>.
+          De wagens zijn sfeervol ingericht en staan op een prachtige plek op de
+          camping met vrij uitzicht. Net als bij de kampeerplekken beschikt u
+          ook hier over uw <strong>eigen privé sanitair</strong>.
         </p>
       </div>
 
       <!-- Feature Images Grid -->
       <div class="grid md:grid-cols-2 gap-8 mb-16">
-        <div class="rounded-2xl overflow-hidden shadow-xl h-96">
-          <img 
-            src="/images/pipowagen-binnen-1.png" 
-            alt="Interieur Pipowagen" 
-            class="w-full h-full object-cover"
+        <div class="rounded-2xl overflow-hidden shadow-xl h-96 group">
+          <img
+            src="/images/new img/pipowagen-binnen-bed-en-zitje.jpeg"
+            alt="Interieur Pipowagen"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
-        <div class="rounded-2xl overflow-hidden shadow-xl h-96">
-          <img 
-            src="/images/pipowagen-binnen-2.png" 
-            alt="Interieur Pipowagen Detail" 
-            class="w-full h-full object-cover"
+        <div class="rounded-2xl overflow-hidden shadow-xl h-96 group">
+          <img
+            src="/images/new img/pipowagen-binnen-keukenblok.jpeg"
+            alt="Interieur Pipowagen Detail"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-stone-50 p-8 rounded-2xl border border-stone-100">
-          <h3 class="text-xl font-bold text-polder-green mb-4">Voorzieningen</h3>
+          <h3 class="text-xl font-bold text-polder-green mb-4">
+            Voorzieningen
+          </h3>
           <ul class="space-y-3 text-stone-700">
             <li class="flex items-center gap-2">
               <span class="w-2 h-2 bg-polder-orange rounded-full"></span>
@@ -60,19 +68,27 @@ import PageHeader from '../components/PageHeader.astro';
               <span class="w-2 h-2 bg-polder-orange rounded-full"></span>
               Privé terrasje
             </li>
-             <li class="flex items-center gap-2">
+            <li class="flex items-center gap-2">
               <span class="w-2 h-2 bg-polder-orange rounded-full"></span>
               Privé sanitair unit (douche/toilet)
             </li>
           </ul>
         </div>
-        
-        <div class="bg-stone-50 p-8 rounded-2xl border border-stone-100 flex flex-col justify-center">
-          <h3 class="text-xl font-bold text-polder-green mb-4">Tarieven & Beschikbaarheid</h3>
+
+        <div
+          class="bg-stone-50 p-8 rounded-2xl border border-stone-100 flex flex-col justify-center"
+        >
+          <h3 class="text-xl font-bold text-polder-green mb-4">
+            Tarieven & Beschikbaarheid
+          </h3>
           <p class="mb-6 text-stone-600">
-            Benieuwd naar de kosten en wanneer u kunt komen slapen in deze unieke wagens? Neem contact op voor de actuele beschikbaarheid.
+            Benieuwd naar de kosten en wanneer u kunt komen slapen in deze
+            unieke wagens? Neem contact op voor de actuele beschikbaarheid.
           </p>
-          <a href="/contact" class="bg-polder-orange text-center text-white font-bold py-3 px-6 rounded-full hover:bg-polder-orange-dark transition-colors">
+          <a
+            href="/contact"
+            class="bg-polder-orange text-center text-white font-bold py-3 px-6 rounded-full hover:bg-polder-orange-dark transition-colors"
+          >
             Informatie Aanvragen
           </a>
         </div>
